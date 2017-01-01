@@ -1,29 +1,19 @@
 var population;
 var lifespan = 500;
+var obstacleCount = 3;
 var percentHTML;
 var count = 0;
 var target = {};
-var horizontalObstacle = {};
-var verticalObstacle = {};
+var obstacles = [];
 
 
 var setup = function() {
 
     createCanvas(800, 600);
 
-    horizontalObstacle = {
-        x: random(50, 400),
-        y: random(50, 550),
-        w: random(50, 700),
-        h: 20
-    };
-
-    verticalObstacle = {
-        x: random(50, 400),
-        y: random(50, 550),
-        w: 20,
-        h: random(50, 700)
-    };
+    for (var i = 0; i < obstacleCount; i++) {
+        obstacles[i] = new Obstacle();
+    }
 
     target = {
         x: random(width / 3, width),
@@ -41,20 +31,9 @@ var draw = function() {
     background(0);
     noStroke();
 
-    fill(255);
-    rect(
-        horizontalObstacle.x,
-        horizontalObstacle.y,
-        horizontalObstacle.w,
-        horizontalObstacle.h
-    );
-
-    rect(
-        verticalObstacle.x,
-        verticalObstacle.y,
-        verticalObstacle.w,
-        verticalObstacle.h
-    );
+    for (var i = 0; i < obstacles.length; i++) {
+        obstacles[i].show();
+    }
 
     fill(255, 0, 0);
     ellipse(
@@ -64,9 +43,7 @@ var draw = function() {
         target.r
     );
 
-
     population.run();
-
 
     percentHTML.html(parseInt(((count / lifespan) * 100)) + '%');
 

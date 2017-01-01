@@ -46,50 +46,9 @@ var Ball = function(dna) {
             this.pos.y = target.y;
         }
 
-        // CHECK IF HORIZONTAL OBSTACLE HIT
-        if (
-            this.pos.x + this.radius > horizontalObstacle.x &&
-            this.pos.x - this.radius < horizontalObstacle.x + horizontalObstacle.w &&
-            this.pos.y + this.radius > horizontalObstacle.y &&
-            this.pos.y - this.radius < horizontalObstacle.y + horizontalObstacle.h
-        ) {
-            if (this.pos.x < horizontalObstacle.x + 5) {
-                this.pos.x -= 1;
-                this.vel.x = - this.vel.x * .9;
-            } else if (this.pos.x > horizontalObstacle.x + horizontalObstacle.w - 5) {
-                this.pos.x += 1;
-                this.vel.x = - this.vel.x * .9;
-            } else {
-                if (this.vel.y >= 0) {
-                    this.pos.y -= this.radius;
-                } else {
-                    this.pos.y += this.radius;
-                }
-                this.vel.y = - this.vel.y * .9;
-            }
-        }
-
-        // CHECK IF VERTICAL OBSTACLE HIT
-        if (
-            this.pos.x + this.radius > verticalObstacle.x &&
-            this.pos.x - this.radius < verticalObstacle.x + verticalObstacle.w &&
-            this.pos.y + this.radius > verticalObstacle.y &&
-            this.pos.y - this.radius < verticalObstacle.y + verticalObstacle.h
-        ) {
-            if (this.pos.y < verticalObstacle.y + 5) {
-                this.pos.y -= 1;
-                this.vel.y = - this.vel.y * .9;
-            } else if (this.pos.y > verticalObstacle.y + verticalObstacle.h - 5) {
-                this.pos.y += 1;
-                this.vel.y = - this.vel.y * .9;
-            } else {
-                if (this.vel.x >= 0) {
-                    this.pos.x -= this.radius;
-                } else {
-                    this.pos.x += this.radius;
-                }
-                this.vel.x = - this.vel.x * .9;
-            }
+        //  CHECK IF OBSTACLE
+        for (var i = obstacles.length - 1; i >= 0; i--) {
+            obstacles[i].hit(this);
         }
 
         // CHECK IF SIDE HIT

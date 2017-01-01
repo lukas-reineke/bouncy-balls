@@ -16,10 +16,10 @@ var setup = function() {
     }
 
     target = {
-        x: random(width / 3, width),
-        y: random(height / 3, height - 30),
         r: 40
     };
+    target.x =  random(width / 3, width - target.r);
+    target.y = random(height / 3, height - target.r);
 
     population = new Population();
     percentHTML = createP();

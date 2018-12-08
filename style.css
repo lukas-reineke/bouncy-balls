@@ -1,0 +1,51 @@
+html,
+body {
+    margin: 0;
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #dcdcdc;
+    height: 2px;
+    outline-color: #ed143d;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 15px;
+    background: #dcdcdc;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+    appearance: none;
+    width: 5px;
+    height: 15px;
+    background: #dcdcdc;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+button {
+    background: transparent;
+    border: solid 1px #dcdcdc;
+    font-weight: bold;
+    outline: none;
+    color: #dcdcdc;
+    padding: 5px;
+    width: 130px;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+h4 {
+    color: #ed143d;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}

@@ -26,20 +26,23 @@ function setup() {
     population = new Population();
 
     const controlX = width - 160;
+    const githubButton = createButton('GitHub');
+    githubButton.position(controlX, 30);
+    githubButton.mousePressed(() =>  window.open("https://github.com/lukas-reineke/bouncy-balls", "_blank"));
     const button = createButton('Skip');
-    button.position(controlX, 30);
+    button.position(controlX, 70);
     button.mousePressed(() => (skip = true));
 
     gravityText = createElement('h4', 'Gravity');
-    gravityText.position(controlX, 50);
+    gravityText.position(controlX, 100);
     gravitySlider = createSlider(0, 100, 30);
-    gravitySlider.position(controlX, 100);
+    gravitySlider.position(controlX, 150);
 
     speedText = createElement('h4', 'Speed');
-    speedText.position(controlX, 100);
+    speedText.position(controlX, 160);
 
     speedSlider = createSlider(1, 10, 1);
-    speedSlider.position(controlX, 150);
+    speedSlider.position(controlX, 210);
 }
 
 function draw() {

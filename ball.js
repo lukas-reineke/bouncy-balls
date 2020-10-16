@@ -26,6 +26,7 @@ class Ball {
         if (this.completedIn) {
             this.fitness *= (count * Speed - this.completedIn) / 20;
         }
+        this.fitness = Math.max(this.fitness, 0)
     }
 
     update() {
